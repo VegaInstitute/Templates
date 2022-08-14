@@ -1,0 +1,54 @@
+\documentclass[
+    %russian
+    ]{vegareport}
+
+\usepackage{lipsum}
+\addbibresource{black76.bib}
+
+\title{Sample title of the report}
+\author{John Smith, Jane Watson}
+\date{}
+
+\begin{document}
+    \maketitle
+    
+    \introduction
+        \lipsum[1-3]
+        \cite{Black1976}
+
+    \chapter{Some basic stuff}
+        \section{Very basic}
+            \lipsum[4]
+            \begin{equation}
+                E = mc^2
+            \end{equation}
+        \section{Not so basic}
+            \lipsum[5-7]
+        \section{Not basic at all}
+            \begin{align}
+                & dS_t          = \alpha S_t dt + \sigma_t S_tdW_t,               \label{model:RFSVasset} \\
+                & d\log\sigma_t = \alpha (m - \log\sigma_t) dt + \nu dW_t^H.      \label{model:RFSVvol}
+            \end{align}
+            \lipsum*[2-4]
+
+    \chapter{Some more stuff}
+        \section{Some stuff again}
+            \lipsum[8-11]
+            \begin{equation}
+                \sum_{\tilde\pi^n(t)}\frac{\left|x(t_{i+1}^n) - x(t_i^n)\right|^p}{\left[x\right]_{\pi}^{(p)}(t_{i+1}^n)-\left[x\right]_{\pi}^{(p)}(t_i^n)} (t_{i+1}^n-t_{i}^n) \to w(x, p, \pi).
+            \end{equation}
+        \section{Some unreadable stuff}
+            \subsection{Lipsum1}
+                \lipsum[12-13]
+            \subsection{Lipsum2}
+                \lipsum{14-16}
+        
+
+    \chapter{Even more stuff}
+        \lipsum[17-25]
+
+    \conclusion
+        \lipsum[26-30]
+
+    \references
+\end{document}
