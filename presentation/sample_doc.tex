@@ -1,0 +1,46 @@
+\documentclass{vegapresentation}
+
+\title{Sample Presentation}
+\subtitle{III International School in Mathematical Finance}
+\author{John Smith}
+\institute{Vega Institute Foundation}
+\date{August 21 -- 28, 2022}
+
+\usepackage[]{lipsum}
+\begin{document}
+    \maketitle
+
+    \begin{frame}{Text example}
+        \lipsum[1]
+    \end{frame}
+
+    \begin{frame}{List example}{Bullets}
+        Popular models:
+        \begin{itemize}
+            \item Cox-Ross-Rubinstein;
+            \item Bachilier;
+            \item Black-Sholes;
+            \item Black;
+            \item CEV.\footnote{Local volatility model, see Dupire.}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{List example}{Enum}
+        Popular models:
+        \begin{enumerate}
+            \item Cox-Ross-Rubinstein;
+            \item Bachilier;
+            \item Black-Sholes;
+            \item Black;
+            \item CEV.\footnote{Local volatility model, see Dupire.}
+        \end{enumerate}
+    \end{frame}
+
+    \begin{frame}{Block  and equation example}
+        \begin{block}{Theorem}
+            \begin{equation}
+                a^2 + b^2 = c^2.
+            \end{equation}
+        \end{block}
+    \end{frame}
+\end{document}
