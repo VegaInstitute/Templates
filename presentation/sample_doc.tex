@@ -2,7 +2,7 @@
 
 \title{Sample Presentation}
 \subtitle{III International School in Mathematical Finance}
-\author{John Smith}
+\author{John Smith, Jane McCartney}
 \institute{Vega Institute Foundation}
 \date{August 21 -- 28, 2022}
 
@@ -37,20 +37,17 @@
     \end{frame}
 
     \begin{frame}{Block  and equation example}
-        \begin{theorem}[И. Гирсанов]
-			Если $\lambda_T = (\lambda_t (\omega))_{t \leq T)}$ таков, что 
-			\begin{equation*}
-				\E e^{\int_0^T \lambda_t dB_t - \frac{1}{2}\int_0^T \lambda_t^2 dt} = 1
-			\end{equation*}
-			и
-			\begin{equation*}
-			 dP_T^\lambda = e^{\int_0^T \lambda_t dB_t - \frac{1}{2}\int_0^T \lambda_t^2 dt} dP_T,
-			\end{equation*}
+        \begin{theorem}[И. Гирсанов]\label{girsanov}
+			Если $\lambda_T = (\lambda_t (\omega))_{t \leq T}$ таков, что 
+			\begin{equation}
+             \E e^{\int_0^T \lambda_t dB_t - \frac{1}{2}\int_0^T \lambda_t^2 dt} = 1, \quad dP_T^\lambda = e^{\int_0^T \lambda_t dB_t - \frac{1}{2}\int_0^T \lambda_t^2 dt} dP_T,
+			\end{equation}
 			то процесс 
-			\begin{equation*}
+			\begin{equation}\label{bm}
 				B^\lambda_t = B_t - \int_0^t \lambda_s(\omega) ds, t \leq T
-			\end{equation*}
+			\end{equation}
 			 является $P_T^\lambda$-броуновским движением.
 		\end{theorem}
+        Уравнение \eqref{bm} работает не всегда, а теорема \ref{girsanov} всегда верна.
     \end{frame}
 \end{document}

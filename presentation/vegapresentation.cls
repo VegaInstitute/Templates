@@ -14,11 +14,11 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamertemplate{blocks}[rounded][shadow=false]
 
+\setbeamertemplate{theorems}[numbered]
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Options: > russian: pass if document is in Russian to change the language of pre-defined text
-%          > figures: pass if you want to use the list of figures
-%          > tables:  pass if you want to use the list of tables
 %          > 
 %          > 
 %          > 
@@ -39,7 +39,6 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{kvoptions}
 
-\RequirePackage{xcolor}
 \RequirePackage{tikz}
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
@@ -81,6 +80,10 @@
 \usefonttheme[onlymath]{serif}
 
 
+
+\RequirePackage{xcolor}
+
+
 \definecolor{color1bg}{HTML}{2C3389}
 \definecolor{color2bg}{HTML}{EFA69D}
 \definecolor{color2lightened}{HTML}{FBE9E7}
@@ -92,11 +95,11 @@
 
 \hypersetup
 {
-	colorlinks=false,
-	%linkcolor=blue,
-	%filecolor=magenta,      
-	%urlcolor=cyan,
-	%citecolor=black
+	colorlinks=true,
+	linkcolor=[HTML]{B16D95},
+	filecolor=magenta,      
+	urlcolor=cyan,
+	citecolor=black
 }
 
 \setbeamercolor{palette primary}{bg=white,fg=colormainblue}
@@ -128,12 +131,12 @@
 
 \ProcessKeyvalOptions*
 \ifvegapresentation@russian
-    \RequirePackage[russian]{babel}
+    \RequirePackage[english,russian]{babel}
     \renewcommand{\epsilon}{\varepsilon}
     \renewcommand{\phi}{\varphi}
 
 \else
-    \RequirePackage[english]{babel}
+    \RequirePackage[russian,english]{babel}
 \fi
 
 \newcommand{\textLectureNotes}   {Lecture Notes}
