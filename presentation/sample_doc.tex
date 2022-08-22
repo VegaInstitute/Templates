@@ -1,4 +1,4 @@
-\documentclass{vegapresentation}
+\documentclass[]{vegapresentation}
 
 \title{Sample Presentation}
 \subtitle{III International School in Mathematical Finance}
@@ -37,10 +37,20 @@
     \end{frame}
 
     \begin{frame}{Block  and equation example}
-        \begin{block}{Theorem}
-            \begin{equation}
-                a^2 + b^2 = c^2.
-            \end{equation}
-        \end{block}
+        \begin{theorem}[И. Гирсанов]
+			Если $\lambda_T = (\lambda_t (\omega))_{t \leq T)}$ таков, что 
+			\begin{equation*}
+				\E e^{\int_0^T \lambda_t dB_t - \frac{1}{2}\int_0^T \lambda_t^2 dt} = 1
+			\end{equation*}
+			и
+			\begin{equation*}
+			 dP_T^\lambda = e^{\int_0^T \lambda_t dB_t - \frac{1}{2}\int_0^T \lambda_t^2 dt} dP_T,
+			\end{equation*}
+			то процесс 
+			\begin{equation*}
+				B^\lambda_t = B_t - \int_0^t \lambda_s(\omega) ds, t \leq T
+			\end{equation*}
+			 является $P_T^\lambda$-броуновским движением.
+		\end{theorem}
     \end{frame}
 \end{document}

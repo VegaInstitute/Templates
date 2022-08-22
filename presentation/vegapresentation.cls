@@ -12,7 +12,7 @@
 
 \setbeamertemplate{enumerate items}[default]
 \setbeamertemplate{itemize items}[circle]
-\setbeamertemplate{blocks}[rounded][shadow=true]  
+\setbeamertemplate{blocks}[rounded][shadow=false]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,6 +83,7 @@
 
 \definecolor{color1bg}{HTML}{2C3389}
 \definecolor{color2bg}{HTML}{EFA69D}
+\definecolor{color2lightened}{HTML}{FBE9E7}
 \definecolor{color3bg}{HTML}{B16D95}
 
 \definecolor{colormainblue}{HTML}{2B3189}
@@ -99,7 +100,7 @@
 }
 
 \setbeamercolor{palette primary}{bg=white,fg=colormainblue}
-\setbeamercolor{palette secondary}{bg=white,fg=colormainblue}
+\setbeamercolor{palette secondary}{bg=white,fg=color3bg}
 \setbeamercolor{palette tertiary}{bg=white,fg=colormainblue}
 \setbeamercolor{palette quaternary}{bg=white,fg=colormainblue}
 \setbeamercolor{structure}{fg=colormainblue} % itemize, enumerate, etc
@@ -115,6 +116,9 @@
 \setbeamercolor{author}{fg=white}
 
 \setbeamercolor{footline}{fg=color3bg}
+
+\setbeamercolor{block title}{bg=color2lightened}
+\setbeamercolor{block body}{bg=color2lightened}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Language-dependent commands
