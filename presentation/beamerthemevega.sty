@@ -22,7 +22,7 @@
 \mode<presentation>
 
 \beamertemplatenavigationsymbolsempty
-\setbeamersize{text margin left=1cm,text margin right=2cm}
+\setbeamersize{text margin left=1cm,text margin right=1cm}
 
 \setbeamertemplate{enumerate items}[default]
 \setbeamertemplate{itemize items}[circle]
@@ -33,7 +33,7 @@
 \setbeamertemplate{footline}
 {
   \hbox{\begin{beamercolorbox}[wd=1\paperwidth,ht=0ex,dp=1ex,right]{framenumber}%
-      \usebeamerfont{framenumber}\insertframenumber{} / \inserttotalframenumber\hspace*{0.6cm}
+      \usebeamerfont{framenumber}\insertframenumber{} / \inserttotalframenumber\hspace*{10pt}
     \end{beamercolorbox}}%
   \vskip3pt%
 }
@@ -52,6 +52,7 @@
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{graphicx}
+\RequirePackage{ragged2e}
 
 \RequirePackage{booktabs}
 \RequirePackage{bbm}
@@ -172,10 +173,11 @@
         %\newgeometry{bottom=0.1cm}
         \begin{tikzpicture}[remember picture,overlay]
             \node [fill, rectangle, top color=color1bg,  bottom color=color2bg, anchor=north, minimum width=\paperwidth, minimum height=\paperheight,shading angle=20] (box) at (current page.north){};
-            \node [anchor=north east] at (current page.north east){\includegraphics[width=2cm]{vega_letter_white.pdf}};
+            \node [anchor=north east] at (current page.north east){\includegraphics[width=2.5cm]{vega_letter_white.pdf}};
         \end{tikzpicture}
 
         \vspace*{3.5cm}
+        \vfill
 
         {\color{white}
             \hspace{\defindent}\small{\insertsubtitle}\par
@@ -199,7 +201,7 @@
 \fi
 
 \setbeamertemplate{frametitle}{
-    \vspace*{10pt}
+    \vspace*{5pt}
     \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
     \@tempdima=\textwidth%
     \advance\@tempdima by\beamer@leftmargin%
@@ -220,7 +222,7 @@
         \if@tempswa\else\vskip-.3cm\fi%
     \end{beamercolorbox}%
     \begin{tikzpicture}[remember picture,overlay]
-        \node [anchor=north east] at (current page.north east){\includegraphics[width=2cm]{vega_letter_color.pdf}};
+        \node [anchor=north east] at (current page.north east){\includegraphics[width=1cm]{vega_letter_color.pdf}};
     \end{tikzpicture}
 }
 
@@ -237,6 +239,8 @@
 
 \newtheorem{proposition}{\textProposition}
 \newtheorem*{nb}{NB}
+
+\apptocmd{\frame}{}{\justifying}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
