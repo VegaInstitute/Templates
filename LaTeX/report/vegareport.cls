@@ -21,6 +21,8 @@
 % Packages and Options
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{fontspec}
+%\setmainfont{[vegafont.ttf]}
 
 \RequirePackage{cmap}
 \RequirePackage[T1,T2A]{fontenc}
@@ -43,6 +45,8 @@
 
 \RequirePackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 \RequirePackage{csquotes}
+
+
 
 \DeclareBoolOption{russian}
 
