@@ -3,7 +3,7 @@
 ## $\LaTeX$ Templates
 Developers: Artemy Sazonov, Dmitry Sotnikov
 1. lectures: a template for the lecture notes for the Foundation's [courses](https://www.vega-institute.org/ru/students/courses/).
-2. report: a template for the scientific reports (e.g. [Student Research Groups](https://vega-education.org/research)).
+2. article: a template for the scientific papers (e.g. [Student Research Groups](https://vega-education.org/research)).
 3. presentation: a beamer template for various presentations.
 4. poster: a beamer template for scientific posters for the conferences organized by the Foundation.
 
