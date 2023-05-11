@@ -1,7 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Developers:
 %   - Artemy Sazonov (May 2023 - now)
+%	- Dmitrii Sotnikov (May 2023 - now)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{vegalectures}[2023/05/08 Vega Article Class]
@@ -27,8 +29,7 @@
 
 \RequirePackage{xcolor}
 \RequirePackage{tikz}
-\RequirePackage{geometry}
-\RequirePackage{fancyhdr}
+\usepackage[bottom=4cm]{geometry}\RequirePackage{fancyhdr}
 \RequirePackage{graphicx}
 
 \RequirePackage{booktabs}
@@ -58,7 +59,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\headheight}{14pt}
-\rhead{\includegraphics[width=0.08\linewidth]{vega_logo_smaller.png}}
+\chead{\begin{large} \@title \end{large}}
+\rhead{\includegraphics[width=0.12\linewidth]{vega_logo_smaller.png}}
+\lhead{}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\pagestyle{fancy}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -101,7 +108,7 @@
     \RequirePackage[english]{babel}
 \fi
 
-\newcommand{\textDocumentType}   {Student Research Group Report}
+\newcommand{\textSRG}            {Student Research Group}
 \newcommand{\textSupervisors}    {Supervisors}
 
 \newcommand{\textTableofcontents}{Table of Contents}
@@ -119,9 +126,13 @@
 \newcommand{\textExample}        {Example}
 \newcommand{\textProposition}    {Proposition}
 
+\newcommand{\textKeywords}       {Keywords}
+\newcommand{\textJEL}            {JEL Classification}
+\newcommand{\textMSC}            {MSC Classification}
+
 \ProcessKeyvalOptions*
 \ifvegaarticle@russian
-    \renewcommand{\textDocumentType}   {Отчет по студенческой научной группе}
+    \renewcommand{\textSRG}            {Студенческая научная группа}
     \renewcommand{\textSupervisors}    {Руководители}  
 
     \renewcommand{\textTableofcontents}{Содержание}
@@ -137,6 +148,10 @@
     \renewcommand{\textCorollary}      {Следствие}
     \renewcommand{\textExample}        {Пример}
     \renewcommand{\textProposition}    {Предложение}
+    
+    \renewcommand{\textKeywords}       {Ключевые слова}
+	\renewcommand{\textJEL}            {JEL коды}
+	\renewcommand{\textMSC}            {MSC коды}
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -151,51 +166,54 @@
 \renewcommand{\listoffigures}  {\addcontentsline{toc}{section}{\textListoffigures}\LOF}
 \renewcommand{\listoftables}   {\addcontentsline{toc}{section}{\textListoftables}\LOT}
 
-\DeclareRobustCommand\topic[1]{\gdef\@researchtopic{#1}}
+\DeclareRobustCommand\SRG[1]{\gdef\@SRG_name{#1}}
 \DeclareRobustCommand\supervisors[1]{\gdef\@supervisors{#1}}
 
-\DeclareRobustCommand\subclass[1]{\gdef\@subclass{#1}}
 \DeclareRobustCommand\jel[1]{\gdef\@jel{#1}}
+\DeclareRobustCommand\msc[1]{\gdef\@msc{#1}}
+\DeclareRobustCommand\keywords[1]{\gdef\@keywords{#1}}
 
 
 \renewcommand{\maketitle}
 {
     \vspace*{-3.6cm}
-    \begin{minipage}[t][5cm][s]{21cm}
+    \begin{minipage}[t][3cm][s]{21cm}
         \begin{tikzpicture}[remember picture,overlay]
-            \node [fill, rectangle, top color=color1bg,  bottom color=color2bg, anchor=north, minimum width=\paperwidth, minimum height=5cm,shading angle=20] (box) at (current page.north){};
-            \node [anchor=north east] at (current page.north east){\includegraphics[width=4cm]{vega_letter_white.pdf}};
-        \end{tikzpicture}
-        \color{white}
+            \node [fill, rectangle, top color=color1bg,  bottom color=color2bg, anchor=north, minimum width=\paperwidth, minimum height=3cm,shading angle=20] (box) at (current page.north){};
+            \node [anchor=north east] at (current page.north east){\includegraphics[width=2.5cm]{vega_letter_white.pdf}};
+        \end{tikzpicture}    
+        \color{white}        
+    
+    	\vspace{-0.3cm}
+    	    
+ 		\hspace*{-2.5cm}\noindent\begin{Large}\ifdefined\@SRG\textSRG\fi\end{Large}
+		
+		\vspace*{0.2cm}		
+		
+        \hspace*{-2.5cm}\noindent\begin{Large}\ifdefined\@SRG\@SRG_name\fi\end{Large}
 
-        \hspace*{-2.5cm}\noindent\begin{LARGE}\ifdefined\@researchtopic\@researchtopic\fi\end{LARGE}
-
-        \vspace*{0.5cm}
-        \begin{Large} 
-            \hspace*{-2.5cm}\noindent\textDocumentType
-            
-            \vspace*{0.5cm}
+        \vspace*{0.4cm}
+        \begin{large} 
+            %\vspace*{0.5cm}
             
             \hspace*{-2.5cm}\noindent\ifdefined\@supervisors \textSupervisors: \@supervisors\fi
-        \end{Large}
+        \end{large}
         \vspace*{0.5cm}
-
-        \hspace*{-2.5cm}\noindent \ifdefined\@jel JEL Classification: \@jel.\fi \qquad \ifdefined\@subclass Mathematics Subject Classification (2000): \@subclass.\fi 
     \end{minipage}
     
 
     \begin{center}
-        \begin{LARGE}
+        \begin{Large}
             {\textbf{\@title}}
-        \end{LARGE}
+        \end{Large}
     
         \noindent\hrulefill
     
         \vspace{0.5cm}
     
-        \begin{Large}
+        \begin{large}
         {\@author}
-        \end{Large}
+        \end{large}
 
         \vspace*{0.5cm}
         
@@ -205,6 +223,31 @@
     \end{center}
 }
 
+%\let\oldabstract\abstract
+%\renewcommand{\abstract}[1]{
+%	\oldabstract{#1}
+%}
+\renewcommand{\endabstract}{
+
+	\ifdefined\@keywords
+		\vspace{0.3cm}
+    	\noindent
+    	\textbf{\textKeywords:} \@keywords
+    \fi
+    
+	\ifdefined\@jel 
+	    \vspace{0.3cm}
+    	\noindent
+    	\textbf{\textJEL:} \@jel
+	\fi
+    
+    \ifdefined\@msc 
+    	\vspace{0.3cm}
+    	\noindent
+    	\textbf{\textMSC:} \@msc
+    \fi
+    
+}
 
 \newcommand{\introduction}{\addcontentsline{toc}{section}{\textIntroduction}\section*{\textIntroduction}}
 \newcommand{\conclusion}  {\addcontentsline{toc}{section}{\textConclusion}\section*{\textConclusion}}
