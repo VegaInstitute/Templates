@@ -26,6 +26,7 @@
 \RequirePackage[T1,T2A]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{kvoptions}
+\RequirePackage[title]{appendix}
 
 \RequirePackage{xcolor}
 \RequirePackage{tikz}
@@ -223,10 +224,10 @@
     \end{center}
 }
 
-%\let\oldabstract\abstract
-%\renewcommand{\abstract}[1]{
-%	\oldabstract{#1}
-%}
+\let\oldabstract\abstract
+\renewcommand{\abstract}[1]{
+	\oldabstract{\noindent #1}
+}
 \renewcommand{\endabstract}{
 
 	\ifdefined\@keywords
