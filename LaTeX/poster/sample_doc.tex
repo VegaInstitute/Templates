@@ -1,10 +1,13 @@
 \documentclass[]{beamer}
 
 % Default size A0
-% \usepackage[scale=1.15, size=a0]{beamerposter} % use scale from 1.1 to 1.2
+% \usepackage[scale=1.1, size=a0]{beamerposter} % use scale from 1.1 to 1.2
+
+% Size A1
+\usepackage[scale=0.77, size=a1]{beamerposter} % use scales around 0.8
 
 % Use custom size to set poster's width and height.
-\usepackage[scale=1.15, size=custom, width=120, height=100]{beamerposter} % use scale from 1.1 to 1.2
+%\usepackage[scale=1.15, size=custom, width=120, height=100]{beamerposter} % use scale from 1.1 to 1.2
 \usetheme{vegaposter} 
 
 
@@ -22,7 +25,7 @@
 \begin{frame}[t]
     \begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
      
-    \begin{column}{\sepwid}\end{column} % Empty spacer column
+    \begin{column}{\lrmargin}\end{column} % Empty spacer column
     
     \begin{column}{\onecolwid} % The first column
      
@@ -238,9 +241,8 @@
     
     \end{column} % End of the third column
     
-    \begin{column}{\sepwid}\end{column} % Empty spacer column
+    \begin{column}{\lrmargin}\end{column} % Empty spacer column
     
     \end{columns} % End of all the columns in the poster
-        
     \end{frame} % End of the enclosing frame
 \end{document}

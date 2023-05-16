@@ -146,16 +146,23 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newlength{\sepwid}
+\newlength{\lrmargin}
+\newlength{\tdmargin}
 \newlength{\onecolwid}
 \newlength{\twocolwid}
 \newlength{\threecolwid}
 %\setlength{\paperwidth}{46.8in} % A0 width: 46.8in
 %\setlength{\paperheight}{33.1in} % A0 height: 33.1in
+\setlength{\lrmargin}{0.035\paperwidth}
+\setlength{\tdmargin}{0.035\paperwidth}
 \setlength{\sepwid}{0.025\paperwidth} % Separation width (white space) between columns
-\setlength{\onecolwid}{0.218\paperwidth} % Width of one column
-\setlength{\twocolwid}{0.4625\paperwidth} % Width of two columns
-\setlength{\threecolwid}{0.706\paperwidth} % Width of three columns
-\setlength{\topmargin}{0in} 
+\setlength{\onecolwid}{0.2\paperwidth} % Width of one column
+\setlength{\twocolwid}{2\onecolwid + \sepwid} % Width of two columns
+\setlength{\threecolwid}{3\onecolwid + 2\sepwid} % Width of three columns
+%\setlength{\onecolwid}{0.218\paperwidth} % Width of one column
+%\setlength{\twocolwid}{0.4625\paperwidth} % Width of two columns
+%\setlength{\threecolwid}{0.706\paperwidth} % Width of three columns
+%\setlength{\topmargin}{} 
 
 \beamertemplatenavigationsymbolsempty
 \setbeamersize{text margin left=1cm,text margin right=2cm}
@@ -185,37 +192,39 @@
 \setbeamertemplate{headline}{
  \leavevmode
   \begin{columns}
+   \begin{column}{\lrmargin}
+   \end{column}
    \begin{column}{\maxlogowidth}
-   		\vskip1cm
+   		\vskip1\tdmargin
         \ifdefined\insertlogoleft
         \vspace*{\fill}
-        \hspace{\sepwid}
+%        \hspace{\lrmargin}
         \raggedright
         \insertlogoleft
         \vspace*{\fill}
         \else\fi
    \end{column}
-   \begin{column}{\dimexpr\paperwidth-\maxlogowidth-\maxlogowidth-\sepwid - \sepwid}
-    \vskip2.5cm
+   \begin{column}{\dimexpr\paperwidth-2\maxlogowidth-2\lrmargin}
+	\vskip1\tdmargin
     \centering
     \usebeamercolor{title in headline}{\color{colormainblue}\Huge{\textbf{\inserttitle}}} 
 
-    \vspace*{1.5cm}
+    \vspace*{0.0179\paperheight}
     
     \usebeamercolor{author in headline}{\color{fg}\Large{\insertauthor}} 
 
-    \vspace*{1cm}
+    \vspace*{0.0119\paperheight}
     
     \usebeamercolor{institute in headline}{\color{fg}\large{\textSRG \ <<\insertresearchgroup>>}} 
     
-    \vspace*{0.5cm}
+    \vspace*{0.0059\paperheight}
 
     \usebeamercolor{author in headline}{\color{fg}\large{\textSupervisors: \insertsupervisor}} 
 
-    \vspace*{1cm}
+    \vspace*{0.0119\paperheight}
    \end{column}
    \begin{column}{\maxlogowidth}
-        \vskip1cm
+		\vskip1\tdmargin
         \ifdefined\insertlogoright
         \vspace*{\fill}
         \raggedleft
@@ -223,6 +232,8 @@
         \hspace{\sepwid}
         \vspace*{\fill}
         \else\fi
+   \end{column}
+   \begin{column}{\lrmargin}
    \end{column}
   \end{columns}
 % \vspace{0.05in}
@@ -241,13 +252,13 @@
 \newcommand{\logoright}[1]{
   \newcommand{\insertlogoright}{#1}
   \settowidth{\logorightwidth}{\insertlogoright}
-  \addtolength{\logorightwidth}{10ex}
+%  \addtolength{\logorightwidth}{\lrmargin}
   \setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}
 }
 \newcommand{\logoleft}[1]{
   \newcommand{\insertlogoleft}{#1}
   \settowidth{\logoleftwidth}{\insertlogoleft}
-  \addtolength{\logoleftwidth}{10ex}
+%  \addtolength{\logoleftwidth}{\lrmargin}
   \setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}
 }
 
@@ -317,8 +328,8 @@
 \newtheorem{proposition}{\textProposition}
 \newtheorem*{nb}{NB}
 
-\logoleft{\includegraphics[height=10cm]{figures/vega_logo.png}}
-\logoright{\includegraphics[height=10cm]{figures/QR.png}}
+\logoleft{\includegraphics[height=0.12\paperheight]{figures/vega_logo.png}}
+\logoright{\includegraphics[height=0.12\paperheight]{figures/QR.png}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
