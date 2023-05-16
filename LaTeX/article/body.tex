@@ -1,0 +1,20 @@
+% Write the report here. You can use the nested imports via 'subimport', see the following link:
+% https://www.overleaf.com/learn/latex/Management_in_a_large_project#Using_the_import_package
+% You also can see an example at line n.16.
+
+\section{Mathematics}
+    \blindrandomtrue
+    \blindmathtrue
+    \blindmathpaper
+    \begin{figure}[htp]
+        \centering
+        \includegraphics[width=.4\textwidth]{placeholder.png}
+        \caption{Some caption.}
+    \end{figure}
+
+    See \citetitle{Black1976} by \citeauthor{Black1976} (\citeyear{Black1976}), \cite{Black1976}.
+
+    \subimport{./tab/}{table1.tex}
+
+\section{Text}
+    \Blinddescription

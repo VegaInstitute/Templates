@@ -129,7 +129,7 @@
 
 \newcommand{\textKeywords}       {Keywords}
 \newcommand{\textJEL}            {JEL Classification}
-\newcommand{\textMSC}            {MSC Classification}
+\newcommand{\textMSC}            {Mathematical Subject Classification (2000)}
 
 \ProcessKeyvalOptions*
 \ifvegaarticle@russian
@@ -152,7 +152,7 @@
     
     \renewcommand{\textKeywords}       {Ключевые слова}
 	\renewcommand{\textJEL}            {JEL коды}
-	\renewcommand{\textMSC}            {MSC коды}
+	\renewcommand{\textMSC}            {MSC (2000) коды}
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -189,11 +189,11 @@
     	    
  		\hspace*{-2.5cm}\noindent\begin{Large}\ifdefined\@SRG\textSRG\fi\end{Large}
 		
-		\vspace*{0.2cm}		
+		\vspace*{0.3cm}		
 		
-        \hspace*{-2.5cm}\noindent\begin{Large}\ifdefined\@SRG\@SRG_name\fi\end{Large}
+        \hspace*{-2.5cm}\noindent\begin{Large}\ifdefined\@SRG<<\@SRG_name>>\fi\end{Large}
 
-        \vspace*{0.4cm}
+        \vspace*{0.32cm}
         \begin{large} 
             %\vspace*{0.5cm}
             
