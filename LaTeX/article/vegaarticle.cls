@@ -4,7 +4,6 @@
 %	- Dmitrii Sotnikov (May 2023 - now)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{vegalectures}[2023/05/08 Vega Article Class]
 \LoadClass[a4paper]{article}
@@ -45,13 +44,15 @@
 \RequirePackage{csquotes}
 
 \RequirePackage{authblk}
+\RequirePackage[symbol]{footmisc}
+
+%\RequirePackage{abstract}
 
 
 % Bool options
 \DeclareBoolOption{russian}
 \DeclareBoolOption{figures}
 \DeclareBoolOption{tables}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -160,6 +161,7 @@
 % Title page etc
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \let\TOC\tableofcontents
 \let\LOT\listoftables
 \let\LOF\listoffigures
@@ -174,9 +176,11 @@
 \DeclareRobustCommand\msc[1]{\gdef\@msc{#1}}
 \DeclareRobustCommand\keywords[1]{\gdef\@keywords{#1}}
 
+\newcommand{\email}[1]{\footnote{e-mail: #1}}
 
 \renewcommand{\maketitle}
 {
+	\renewcommand{\thefootnote}{\fnsymbol{footnote}}
     \vspace*{-3.6cm}
     \begin{minipage}[t][3cm][s]{21cm}
         \begin{tikzpicture}[remember picture,overlay]
@@ -222,6 +226,8 @@
         \vspace*{1.cm}
 
     \end{center}
+    \setcounter{footnote}{0}
+    \renewcommand{\thefootnote}{\arabic{footnote}}
 }
 
 \let\oldabstract\abstract
