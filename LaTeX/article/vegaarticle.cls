@@ -60,8 +60,8 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setlength{\headheight}{14pt}
-\chead{\begin{large} \@title \end{large}}
+\setlength{\headheight}{12pt}
+\chead{{\textit\@title}}
 \rhead{\includegraphics[width=0.12\linewidth]{vega_logo_smaller.png}}
 \lhead{}
 \lfoot{}
@@ -274,16 +274,16 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DeclareMathOperator*{\sgn}{sgn}
-\DeclareMathOperator*{\var}{var}   
-\DeclareMathOperator*{\cov}{cov}
-\DeclareMathOperator*{\law}{Law}
+\DeclareMathOperator*{\sgn}{sgn} % Sign of the expression
+\DeclareMathOperator*{\var}{var} % Variance
+\DeclareMathOperator*{\cov}{cov} % Covariance
+\DeclareMathOperator*{\law}{Law} % Distribution
 
-\newcommand{\1}{\mathbbm{1}} 
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\renewcommand{\P}{\mathbb{P}}
-\newcommand{\E}{\mathbb{E}}
+\newcommand{\1}{\mathbbm{1}}     % Indicator
+\newcommand{\R}{\mathbb{R}}      % Real numbers
+\newcommand{\N}{\mathbb{N}}      % Natural numbers
+\renewcommand{\P}{\mathbb{P}}    % Probability
+\newcommand{\E}{\mathbb{E}}      % Expectation
 
 \newcommand{\independent}{\perp\!\!\!\!\perp}
 
