@@ -134,6 +134,9 @@
 
 \ProcessKeyvalOptions*
 \ifvegaarticle@russian
+    \renewcommand\Authand{, }
+    \renewcommand\Authands{, и }
+   	
     \renewcommand{\textSRG}            {Студенческая научная группа}
     \renewcommand{\textSupervisors}    {Руководители}  
 
