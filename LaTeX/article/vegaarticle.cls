@@ -100,6 +100,8 @@
 % Available: English, Russian
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\DeclareSourcemap{\maps[datatype=bibtex]{\map{\step[fieldsource=language]\step[fieldset=hyphenation,origfieldval]}}}
+
 \ProcessKeyvalOptions*
 \ifvegaarticle@russian
     \RequirePackage[russian]{babel}
