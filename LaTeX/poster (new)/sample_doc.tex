@@ -1,0 +1,136 @@
+\documentclass[]{beamer}
+
+
+\usepackage[scale=1, size=custom, width=84, height=64]{beamerposter} 
+\usetheme{vegaposter} 
+
+
+\addbibresource{refs.bib}
+\usepackage{lipsum}
+
+\title{On the broccoli fractional structure}
+\author{Alexander Rosenbaum, Noname Student}
+\supervisor{Group Supervisor 1, Group Supervisor 2}
+\researchgroup{Important questions of stochastic calculus}
+
+\begin{document}
+\nocite{*} % This is needed to make sure that all references are included in the bibliography
+
+\begin{frame}[t]
+    \begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
+     
+    \begin{column}{\lrmargin}\end{column} % Empty spacer column
+    
+    \begin{column}{\onecolwid} % The first column
+     
+    %----------------------------------------------------------------------------------------
+    %	INTRODUCTION
+    %----------------------------------------------------------------------------------------
+    
+    \begin{block}{Introduction}
+    
+    The fractional structure of broccoli refers to the different components or parts that make up a broccoli plant. Broccoli is a type of vegetable belonging to the cabbage family (\textit{Brassicaceae}) and is known for its dense clusters of green flower buds and stalks. 
+    
+    \end{block}
+    
+    %----------------------------------------------------------------------------------------
+    %	OBJECTIVES
+    %----------------------------------------------------------------------------------------
+    
+    \begin{alertblock}{Objectives}
+    
+    Here are the main parts of a broccoli plant:
+    \begin{itemize}
+        \item Floret: The florets are the small, tightly packed clusters that make up the head of broccoli. These are the edible portions of the plant and are composed of immature flower buds.
+
+    	\item Stalk: The stalk of broccoli is the main central stem that supports the florets. It is typically thick and sturdy, providing structural support for the head.
+
+    	\item Leaves: Broccoli plants have large, dark green leaves that extend from the stalk. While the leaves are not commonly consumed, they are edible and can be cooked or used in recipes, similar to other leafy greens.
+
+    \end{itemize}
+    
+    \end{alertblock}
+    
+    %------------------------------------------------
+    \begin{block}{Problem statement}
+    These components together form the fractional structure of broccoli, with the florets being the most recognizable and commonly consumed part.
+    \end{block}
+    
+    %----------------------------------------------------------------------------------------
+    
+    \end{column} % End of the first column
+    
+    \begin{column}{\sepwid}\end{column} % Empty spacer column
+    
+    \begin{column}{\onecolwid} % Begin a column which is two columns wide (column 2)
+    
+    
+    %----------------------------------------------------------------------------------------
+    %	IMPORTANT RESULT
+    %----------------------------------------------------------------------------------------
+    
+    \begin{alertblock}{Broccoli is rough!}
+    
+     When we examine the structure of broccoli, we can observe repeated patterns that resemble the whole plant. The branching pattern of the main stem is reflected in the smaller branches, and these branches further divide into even smaller branches, creating a self-similar pattern.
+    
+    \end{alertblock} 
+    
+    %----------------------------------------------------------------------------------------
+    
+    %----------------------------------------------------------------------------------------
+    %	MATHEMATICAL SECTION
+    %----------------------------------------------------------------------------------------
+    
+    \begin{block}{Mathematical Section}
+    
+    This self-similar pattern is characteristic of fractals. Fractals exhibit a property known as self-similarity, where parts of the object resemble the whole, or sections of the object resemble each other. 
+    
+    $$
+    N = \varepsilon^{-D}
+    $$
+    
+    The fractal nature of broccoli's structure is visually intriguing and has been studied by scientists and mathematicians interested in the beauty and mathematical properties of natural forms. 
+    
+    The branching pattern of a broccoli plant follows a fractal geometry known as a self-similar fractal. A self-similar fractal is one in which smaller parts resemble the overall shape or structure of the whole.  
+    \end{block}
+   
+    
+    %----------------------------------------------------------------------------------------
+    \end{column}
+    
+    
+    \begin{column}{\sepwid}\end{column} % Empty spacer column
+    
+    \begin{column}{\onecolwid} % The third column
+    
+        %----------------------------------------------------------------------------------------
+        %	CONCLUSION
+        %----------------------------------------------------------------------------------------
+        
+        \begin{block}{Conclusion}
+        This recursive branching and self-similar pattern in the structure of broccoli are what make it an example of a fractal in nature. Fractals can be found in various natural phenomena, and broccoli serves as a visually appealing example of fractal geometry in plants.
+    
+        In conclusion, broccoli exhibits fractal characteristics in its structure. The self-repeating patterns and recursive branching observed in broccoli's stalks and florets resemble the mathematical concept of fractals. This self-similarity at different scales is a defining characteristic of fractals. Therefore, broccoli can be considered an example of a fractal in nature.
+            
+        Follow us in \href{https://t.me/vega_institute}{Telegram}.
+        
+        \end{block}
+        
+        %----------------------------------------------------------------------------------------
+        %	REFERENCES
+        %----------------------------------------------------------------------------------------
+        
+        \begin{block}{References}
+        
+    %    \nocite{*} % Insert publications even if they are not cited in the poster
+        \printbibliography \vspace{0.75in}
+        
+        \end{block}
+        
+        \end{column} % End of the third column
+    
+    \begin{column}{\lrmargin}\end{column} % Empty spacer column
+    
+    \end{columns} % End of all the columns in the poster
+    \end{frame} % End of the enclosing frame
+\end{document}
