@@ -96,13 +96,17 @@
 \newlength{\iinboxwd}
 \newlength{\inboxrule}
 
-\definecolor{color1bg}{HTML}{5F468D}
+\definecolor{color1bg}{HTML}{4F3888}
 \definecolor{color2bg}{HTML}{BC7297}
 \definecolor{color2lightened}{HTML}{F2959D}
 \definecolor{white}{HTML}{FFFFFF}
 \definecolor{color3bg}{HTML}{F5B69D}
 \definecolor{color4bg}{HTML}{F0ECF5}
 \definecolor{colormainblue}{HTML}{2C2F88}
+
+\definecolor{colorTitle}{HTML}{312E87}
+\definecolor{colorSubtitle}{HTML}{342F87}
+\definecolor{colorAlert}{HTML}{4F3888}
 
 \newcommand{\headlinecolor}{\normalcolor}
 
@@ -137,8 +141,8 @@
 
 \setbeamercolor{item}{fg=black}
 
-\setbeamercolor{block alerted title}{fg=white,bg=color1bg}
-\setbeamercolor{block alerted body}{fg=black,bg=color1bg!10}
+\setbeamercolor{block alerted title}{fg=white,bg=colorAlert}
+\setbeamercolor{block alerted body}{fg=black,bg=colorAlert!10}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -153,8 +157,8 @@
 \newlength{\threecolwid}
 %\setlength{\paperwidth}{46.8in} % A0 width: 46.8in
 %\setlength{\paperheight}{33.1in} % A0 height: 33.1in
-\setlength{\lrmargin}{0.045\paperwidth}
-\setlength{\tdmargin}{0.045\paperwidth}
+\setlength{\lrmargin}{3cm}
+\setlength{\tdmargin}{3cm}
 \setlength{\sepwid}{0.02\paperwidth} % Separation width (white space) between columns
 \setlength{\onecolwid}{0.21\paperwidth} % Width of one column
 \setlength{\twocolwid}{2\onecolwid + \sepwid} % Width of two columns
@@ -197,29 +201,27 @@
    \begin{column}{\maxlogowidth}
    		\vskip1\tdmargin
         \ifdefined\insertlogoleft
-        \vspace*{\fill}
-%        \hspace{\lrmargin}
-        \raggedright
+        \vspace*{-3cm}
         \insertlogoleft
-        \vspace*{\fill}
+        \vfill
         \else\fi
    \end{column}
    \begin{column}{\dimexpr\paperwidth-2\maxlogowidth-2\lrmargin}
 	\vskip1\tdmargin
     \centering
-    \usebeamercolor{title in headline}{\color{colormainblue}\Huge{\textbf{\inserttitle}}} 
+    {\color{colorTitle}\Huge{\textbf{\inserttitle}}} 
 
     \vspace*{0.0179\paperheight}
     
-    \usebeamercolor{author in headline}{\color{fg}\Large{\insertauthor}} 
+    {\color{colorSubtitle}\Large{\insertauthor}} 
 
     \vspace*{0.0119\paperheight}
     
-    \usebeamercolor{institute in headline}{\color{fg}\large{\textSRG \ <<\insertresearchgroup>>}} 
+    {\color{colorSubtitle}\large{\textSRG \ <<\insertresearchgroup>>}} 
     
     \vspace*{0.0059\paperheight}
 
-    \usebeamercolor{author in headline}{\color{fg}\large{\textSupervisors: \insertsupervisor}} 
+    {\color{colorSubtitle}\large{\textSupervisors: \insertsupervisor}} 
 
     \vspace*{0.0119\paperheight}
    \end{column}

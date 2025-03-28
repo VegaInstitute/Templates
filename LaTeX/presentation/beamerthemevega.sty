@@ -1,6 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Developers:
-%   - Artemy Sazonov (July 2022 - now)
+%   - Artemy Sazonov (July 2024 - now)
+%   - Artur Sidorenko (March 2025 - now)
 %
 %
 %
@@ -14,7 +15,7 @@
 \DeclareOptionBeamer{russian}{\beamer@russiantrue}
 
 \newif\ifbeamer@disabletoc
-\beamer@russianfalse
+\beamer@disabletocfalse
 \DeclareOptionBeamer{disabletoc}{\beamer@disabletoctrue}
 
 \ProcessOptionsBeamer
@@ -61,7 +62,7 @@
 \RequirePackage{mathtext}
 \RequirePackage{amsthm}
 
-\RequirePackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\RequirePackage[backend=biber,style=authoryear,sorting=ynt,language=english,autolang=other]{biblatex}
 \RequirePackage{csquotes}
 
 
@@ -76,43 +77,42 @@
 
 \RequirePackage{xcolor}
 
-\definecolor{color1bg}{HTML}{2C3389}
-\definecolor{color2bg}{HTML}{EFA69D}
-\definecolor{color2lightened}{HTML}{FBE9E7}
-\definecolor{color3bg}{HTML}{B16D95}
+\definecolor{colorTop}{HTML}{312E87}
+\definecolor{colorBottom}{HTML}{924E8A}
+\definecolor{colorHeading}{HTML}{312E87}
+\definecolor{colorBlock}{HTML}{E9DCE8}
+\definecolor{colorBlockTitle}{HTML}{342F87}
+\definecolor{colorFrameNumber}{HTML}{342F87}
 
-\definecolor{colormainblue}{HTML}{2B3189}
+
 
 \newcommand{\headlinecolor}{\normalcolor}
 
 \hypersetup
 {
 	colorlinks=true,
-	linkcolor=[HTML]{B16D95},
-	filecolor=magenta,      
-	urlcolor=cyan,
+	linkcolor=[HTML]{924E8A},
+    urlcolor=[HTML]{924E8A},
 	citecolor=black
 }
 
-\setbeamercolor{palette primary}{bg=white,fg=colormainblue}
-\setbeamercolor{palette secondary}{bg=white,fg=color3bg}
-\setbeamercolor{palette tertiary}{bg=white,fg=colormainblue}
-\setbeamercolor{palette quaternary}{bg=white,fg=colormainblue}
-\setbeamercolor{structure}{fg=colormainblue}
-\setbeamercolor{section in toc}{fg=colormainblue}
 
-\setbeamercolor{subsection in head/foot}{bg=white,fg=colormainblue}
 
-\setbeamercolor{footnote}{fg=color3bg}
-\setbeamercolor{footnote mark}{fg=color3bg}
+\setbeamercolor{frametitle}{bg=white,fg=colorHeading}
+\setbeamercolor{framenumber}{fg=colorBlockTitle}
+
+\setbeamercolor{footnote}{fg=colorBottom}
+\setbeamercolor{footnote mark}{fg=colorBottom}
+\setbeamercolor{footline}{fg=colorBottom}
 
 \setbeamercolor{title}{fg=white}
 \setbeamercolor{author}{fg=white}
 
-\setbeamercolor{footline}{fg=color3bg}
+\setbeamercolor{block title}{bg=colorBlock,fg=colorBlockTitle}
+\setbeamercolor{block body}{bg=colorBlock}
+\setbeamercolor{caption name}{fg=colorBlockTitle}
+\setbeamercolor{local structure}{fg=colorBlockTitle}
 
-\setbeamercolor{block title}{bg=color2lightened}
-\setbeamercolor{block body}{bg=color2lightened}
 
 
 
@@ -122,28 +122,26 @@
 % Available: English, Russian
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\textLectureNotes}   {Lecture Slides}
-
 \newcommand{\textTableofcontents}{Outline}
 \newcommand{\textListoffigures}  {List of Figures}
 \newcommand{\textListoftables}   {List of Tables}
 \newcommand{\textIntroduction}   {Introduction}
 \newcommand{\textConclusion}     {Conclusion}
-\newcommand{\textReferences}     {Bibliography}
-\newcommand{\textSupervisors}    {Supervisors}
+\newcommand{\textOurReferences}     {Bibliography}
 \newcommand{\textSupervisor}     {Supervisor}
+\newcommand{\textSupervisors}     {Supervisors}
+
+\newcommand{\textScientificAdvisor} {Scientific Advisor}
 
 \newcommand{\textProposition}    {Proposition}
 
-\ifx\ifbeamer@russian
-    \renewcommand{\textLectureNotes}   {Лекционные слайды}
-
+\ifbeamer@russian
     \renewcommand{\textTableofcontents}{Содержание}
     \renewcommand{\textListoffigures}  {Список рисунков}
     \renewcommand{\textListoftables}   {Список таблиц}
     \renewcommand{\textIntroduction}   {Введение}
     \renewcommand{\textConclusion}     {Заключение}
-    \renewcommand{\textReferences}     {Список литературы}
+    \renewcommand{\textOurReferences}     {Список литературы}
 
     \renewcommand{\textProposition}    {Утверждение}
     \renewcommand{\textSupervisors}    {Руководители}
@@ -166,13 +164,19 @@
 \def\insertshortsupervisor{#1}%
 }
 
+\newcommand{\advisor}{\@dblarg\beamer@advisor}
+\long\def\beamer@advisor[#1]#2{%
+\def\insertadvisor{#2}%
+\def\insertshortadvisor{#1}%
+}
+
 \newcommand{\defindent}{0cm}
 \def\maketitle
 {
     \frame[plain,noframenumbering]{
         %\newgeometry{bottom=0.1cm}
         \begin{tikzpicture}[remember picture,overlay]
-            \node [fill, rectangle, top color=color1bg,  bottom color=color2bg, anchor=north, minimum width=\paperwidth, minimum height=\paperheight,shading angle=20] (box) at (current page.north){};
+            \node [fill, rectangle, top color=colorTop,  bottom color=colorBottom, anchor=north, minimum width=\paperwidth, minimum height=\paperheight,shading angle=0] (box) at (current page.north){};
             \node [anchor=north east] at (current page.north east){\includegraphics[width=2.5cm]{vega_letter_white.pdf}};
         \end{tikzpicture}
 
@@ -186,7 +190,7 @@
             \bigskip
             \hspace{\defindent}\usebeamerfont{author}\small{\insertauthor}\par
             \smallskip
-            \hspace{\defindent}\usebeamerfont{institute}{\textSupervisors: \insertsupervisor}\par
+            \hspace{\defindent}\usebeamerfont{institute}{\textSupervisor: \insertsupervisor}\par
             \smallskip
             \hspace{\defindent}\usebeamerfont{institute}\insertinstitute\par
             \medskip
@@ -196,8 +200,15 @@
     }
 }
 
-\ifx\ifbeamer@disabletoc\else
-    \AtBeginSection{\begin{frame}\frametitle{\textTableofcontents}\tableofcontents[currentsection,hideallsubsections]\end{frame}}
+\ifbeamer@disabletoc
+    % do nothing if disabled
+\else
+    \AtBeginSection[]{
+        \begin{frame}
+            \frametitle{\textTableofcontents}
+            \tableofcontents[currentsection,hideallsubsections]
+        \end{frame}
+    }
 \fi
 
 \setbeamertemplate{frametitle}{
@@ -230,7 +241,8 @@
     {
         \frame[plain,noframenumbering]{
             \begin{tikzpicture}[remember picture,overlay]
-                \node [anchor=center] at (current page.center){\includegraphics[width=5cm]{vega_letter_color.pdf}};
+                \node [fill, rectangle, top color=colorTop,  bottom color=colorBottom, anchor=north, minimum width=\paperwidth, minimum height=\paperheight,shading angle=0] (box) at (current page.north){};
+                \node [anchor=center] at (current page.center){\includegraphics[width=5cm]{vega_letter_white.pdf}};
             \end{tikzpicture}
         }
     }
