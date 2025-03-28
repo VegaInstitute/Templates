@@ -1,6 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Developers:
 %   - Artemy Sazonov (July 2024 - now)
+%   - Artur Sidorenko (March 2025 - now)
 %
 %
 %
@@ -14,7 +15,7 @@
 \DeclareOptionBeamer{russian}{\beamer@russiantrue}
 
 \newif\ifbeamer@disabletoc
-\beamer@russianfalse
+\beamer@disabletocfalse
 \DeclareOptionBeamer{disabletoc}{\beamer@disabletoctrue}
 
 \ProcessOptionsBeamer
@@ -61,7 +62,7 @@
 \RequirePackage{mathtext}
 \RequirePackage{amsthm}
 
-\RequirePackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\RequirePackage[backend=biber,style=authoryear,sorting=ynt,language=english,autolang=other]{biblatex}
 \RequirePackage{csquotes}
 
 
@@ -126,19 +127,21 @@
 \newcommand{\textListoftables}   {List of Tables}
 \newcommand{\textIntroduction}   {Introduction}
 \newcommand{\textConclusion}     {Conclusion}
-\newcommand{\textReferences}     {Bibliography}
-\newcommand{\textSupervisors}    {Supervisors}
+\newcommand{\textOurReferences}     {Bibliography}
 \newcommand{\textSupervisor}     {Supervisor}
+\newcommand{\textSupervisors}     {Supervisors}
+
+\newcommand{\textScientificAdvisor} {Scientific Advisor}
 
 \newcommand{\textProposition}    {Proposition}
 
-\ifx\ifbeamer@russian
+\ifbeamer@russian
     \renewcommand{\textTableofcontents}{Содержание}
     \renewcommand{\textListoffigures}  {Список рисунков}
     \renewcommand{\textListoftables}   {Список таблиц}
     \renewcommand{\textIntroduction}   {Введение}
     \renewcommand{\textConclusion}     {Заключение}
-    \renewcommand{\textReferences}     {Список литературы}
+    \renewcommand{\textOurReferences}     {Список литературы}
 
     \renewcommand{\textProposition}    {Утверждение}
     \renewcommand{\textSupervisors}    {Руководители}
@@ -161,6 +164,12 @@
 \def\insertshortsupervisor{#1}%
 }
 
+\newcommand{\advisor}{\@dblarg\beamer@advisor}
+\long\def\beamer@advisor[#1]#2{%
+\def\insertadvisor{#2}%
+\def\insertshortadvisor{#1}%
+}
+
 \newcommand{\defindent}{0cm}
 \def\maketitle
 {
@@ -181,7 +190,7 @@
             \bigskip
             \hspace{\defindent}\usebeamerfont{author}\small{\insertauthor}\par
             \smallskip
-            \hspace{\defindent}\usebeamerfont{institute}{\textSupervisors: \insertsupervisor}\par
+            \hspace{\defindent}\usebeamerfont{institute}{\textSupervisor: \insertsupervisor}\par
             \smallskip
             \hspace{\defindent}\usebeamerfont{institute}\insertinstitute\par
             \medskip
@@ -191,7 +200,16 @@
     }
 }
 
-\AtBeginSection{\begin{frame}\frametitle{\textTableofcontents}\tableofcontents[currentsection,hideallsubsections]\end{frame}}
+\ifbeamer@disabletoc
+    % do nothing if disabled
+\else
+    \AtBeginSection[]{
+        \begin{frame}
+            \frametitle{\textTableofcontents}
+            \tableofcontents[currentsection,hideallsubsections]
+        \end{frame}
+    }
+\fi
 
 \setbeamertemplate{frametitle}{
     \vspace*{5pt}
